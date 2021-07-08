@@ -1,0 +1,47 @@
+{% extends 'Commom.html' %}
+{% block product %}
+
+    {% if error %}
+        <h2 style="text-align: center;color: red">{{ error }}</h2>
+    {% else %}
+
+        <table align="center" border="0">
+
+            <tr>
+                {% for x in data %}
+                    <th>
+
+                        <table align="center" border="1" style="padding: 5px">
+                            <tr><th colspan="2"><img src="{{ x.image.url }}" width="210" height="200"></th></tr>
+                            <tr><th>Name : </th> <th>{{ x.name }}</th></tr>
+                            <tr><th>Price : </th> <th>{{ x.price }}</th></tr>
+                            <tr><th>Category :</th><th>{{ x.category }}</th></tr>
+                            <tr><th>Posted date : </th> <th>{{ x.date }}</th></tr>
+                            <tr><th>Quantity : </th><th>{{ x.quantity }}</th></tr>
+                            <tr align="center"  bgcolor="black" ><th colspan="2" ><a href="{% url 'AddtoCart' %}?name={{ x.name }}&price={{ x.price }}">Add to cart</a> </th></tr>
+                        </table>
+
+
+
+
+
+                    </th>
+                     {% if forloop.counter|divisibleby:4 %}
+                            </tr>
+                            {% endif %}
+                {% endfor %}
+
+
+        </table>
+    {% endif %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

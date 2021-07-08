@@ -1,0 +1,63 @@
+{% extends 'Commom.html' %}
+{% block product %}
+
+    <style>
+        table tr th{
+            border-style: solid;
+            border-color: orangered;
+            border-width: 2px;
+        }
+        th{
+            padding: 5px;
+        }
+        .title
+        {
+            width: 300px;
+            text-align: center;
+            font-family: "Agency FB";
+            font-size: 30px;
+        }
+    .title_1{
+        font-family: "Agency FB";
+        font-size: 20px;
+    }
+    </style>
+    <form action="{% url 'save_product' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <table align="center" border="2">
+    <tr><th class="title">Add New Product</th></tr>
+    <tr><th class="title_1">
+        <input type="text" placeholder="Name" required name="p1">
+    </th></tr>
+   <tr><th class="title_1">
+        <input type="number" placeholder="Price" required name="p2">
+    </th></tr>
+   <tr><th class="title_1">
+        <input type="number" placeholder="Quantity" required name="p3">
+    </th></tr>
+   <tr><th class="title_1">
+        Product Image <input type="file"  required name="p4">
+    </th></tr>
+   <tr><th class="title_1">
+        <select required name="p5">
+            <option>Mobiles</option>
+            <option>Laptops</option>
+            <option>Desktops</option>
+            <option>t-shirts</option>
+            <option>Jeans-paint</option>
+            <option>watch's</option>
+            <option>Shoes's</option>
+            <option>Bag's</option>
+            <option>Electronic Iteams</option>
+        </select>
+    </th></tr>
+   <tr><th>
+       <button type="submit">Save</button>
+   </th></tr>
+            {% for x in messages %}
+                <tr><th style="text-align: center;font-family: cursive;color: blue;font-size: 25px">{{ x }}</th></tr>
+            {% endfor %}
+   </table>
+    </form>
+
+{% endblock %}

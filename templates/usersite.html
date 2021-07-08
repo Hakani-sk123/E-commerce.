@@ -1,0 +1,32 @@
+{% extends 'Commom.html' %}
+
+{% block product %}
+    <style>
+        a:hover{
+
+        color: orangered;
+
+        }
+
+    </style>
+
+<br>
+<table align="center" border="2" style="background-color: white;border-style: dotted" >
+<tr  style="font-family: 'Angsana New';font-size: 30px;color: orangered">
+    <th>
+        <a href="{% url 'usercreateAc' %}">User-Create Account</a>
+    </th>
+    <th>
+        <a href="{% url 'userLogin' %}">User-Login</a>
+    </th>
+</tr>
+</table>
+
+
+
+
+
+
+
+
+{% endblock %}
